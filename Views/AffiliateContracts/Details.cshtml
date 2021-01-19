@@ -1,0 +1,98 @@
+﻿@model AFFILIATES.GB.Models.AffiliateContracts
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div>
+    <h4>AffiliateContracts</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.FirtsName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ContractStatu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ContractStatu.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary" asp-route-id="@Model.Id" asp-controller="AffiliateContractServices">Add new services</a>
+    <h4>Services</h4>
+    <hr />
+    @foreach (var service in Model.AffiliateContractServices)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => service.Service)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => service.Service.Code) - @Html.DisplayFor(model => service.Service.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => service.Observation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => service.Observation)
+            </dd>
+        </dl>
+
+    }
+</div>
+
+<div>
+    <h4>Affiliates</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate.FirtsName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.FirtsName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate.NationalId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.NationalId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate.Birthday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.Birthday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Affiliate.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Affiliate.Gender)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Management</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+
+</div>

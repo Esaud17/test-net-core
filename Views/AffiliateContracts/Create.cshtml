@@ -1,0 +1,35 @@
+﻿@model AFFILIATES.GB.Models.AffiliateContracts
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Contract of affiliate</h1>
+
+<h4>AffiliateContracts</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AffiliateId" class="control-label"></label>
+                <select asp-for="AffiliateId" class="form-control" asp-items="ViewBag.AffiliateId"></select>
+                <span asp-validation-for="AffiliateId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create new Request" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

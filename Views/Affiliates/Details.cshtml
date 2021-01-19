@@ -1,0 +1,101 @@
+﻿@model AFFILIATES.GB.Models.Affiliates
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Affiliates</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirtsName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirtsName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NationalId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NationalId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+    </dl>
+
+    Contracts
+    <hr />
+
+    <div>
+        <h4>Contracts</h4>
+        <hr />
+        @foreach (var contract in Model.AffiliateContracts)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => contract.ApplicationDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => contract.ApplicationDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => contract.ContractStatu)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => contract.ContractStatu.Status)
+                </dd>
+            </dl>
+
+
+            <div>
+                <h4>Services</h4>
+                <hr />
+                @foreach (var service in contract.AffiliateContractServices)
+                {
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => service.Service)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => service.Service.Code) - @Html.DisplayFor(model => service.Service.Description)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => service.Observation)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => service.Observation)
+                        </dd>
+                    </dl>
+
+                }
+            </div>
+
+
+        }
+    </div>
+    <hr />
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
